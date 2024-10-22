@@ -48,3 +48,23 @@ function formatTime(timestamp) {
 }
 
 document.addEventListener('DOMContentLoaded', loadSchedules);
+
+// Add shimmering effect to the disco ball overlay
+function addShimmer() {
+  const overlay = document.querySelector('.disco-ball-overlay');
+  setInterval(() => {
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const shimmer = document.createElement('div');
+    shimmer.classList.add('shimmer');
+    shimmer.style.left = `${x}%`;
+    shimmer.style.top = `${y}%`;
+    overlay.appendChild(shimmer);
+    setTimeout(() => shimmer.remove(), 1000);
+  }, 200);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadSchedules();
+  addShimmer();
+});
