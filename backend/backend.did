@@ -1,0 +1,12 @@
+type Schedule = 
+ record {
+   day: text;
+   description: text;
+   endTime: int;
+   startTime: int;
+ };
+service : {
+  addSchedule: (text, int, int, text) -> ();
+  clearSchedules: () -> ();
+  getSchedules: () -> (vec Schedule) query;
+}
